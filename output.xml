@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0 (Python 3.10.2 on win32)" generated="20220512 12:32:48.888" rpa="false" schemaversion="3">
+<suite id="s1" name="Verify Invalid Credential Suite" source="C:\Users\User\PycharmProjects\pythonProject5\Login_Suite\verify_invalid_credential_suite.robot">
+<test id="s1-t1" name="Tc1" line="11">
+<kw name="launch Browser" library="CommonFunctionality" type="SETUP">
+<kw name="Append To Environment Variable" library="OperatingSystem">
+<arg>path</arg>
+<arg>${EXECDIR}${/}Driver</arg>
+<doc>Appends given ``values`` to environment variable ``name``.</doc>
+<msg timestamp="20220512 12:32:50.450" level="INFO">Environment variable 'path' set to value 'C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\VMware\VMware Workstation\bin\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C;C;C:\Users\User\OneDrive\Desktop\Python\Scripts\;C:\Users\User\OneDrive\Desktop\Python\;C:\Users\User\AppData\Local\Microsoft\WindowsApps;;C:\Users\User\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\User\PycharmProjects\pythonProject5\Driver'.</msg>
+<status status="PASS" starttime="20220512 12:32:50.450" endtime="20220512 12:32:50.450"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>browser=${Browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220512 12:32:50.450" level="INFO">Opening browser 'chrome' to base url 'None'.</msg>
+<status status="PASS" starttime="20220512 12:32:50.450" endtime="20220512 12:32:54.309"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20220512 12:32:54.309" endtime="20220512 12:32:54.443"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<arg>30s</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" starttime="20220512 12:32:54.443" endtime="20220512 12:32:54.443"/>
+</kw>
+<kw name="Set Screenshot Directory" library="SeleniumLibrary">
+<arg>${EXECDIR}$(/)Screenshots</arg>
+<doc>Sets the directory for captured screenshots.</doc>
+<status status="PASS" starttime="20220512 12:32:54.443" endtime="20220512 12:32:54.443"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>url=${URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20220512 12:32:54.458" level="INFO">Opening url 'https://www.pepperfry.com/'</msg>
+<status status="PASS" starttime="20220512 12:32:54.443" endtime="20220512 12:33:22.453"/>
+</kw>
+<status status="PASS" starttime="20220512 12:32:50.450" endtime="20220512 12:33:22.453"/>
+</kw>
+<kw name="Invalid Credential Template">
+<arg>admin@co.in</arg>
+<arg>admin12354484</arg>
+<arg>Incorrect email ID or password</arg>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=//a[text()='Existing User? Log In']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220512 12:33:22.453" level="INFO">Clicking element 'xpath=//a[text()='Existing User? Log In']'.</msg>
+<status status="PASS" starttime="20220512 12:33:22.453" endtime="20220512 12:33:35.294"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>name=user[new]</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220512 12:33:35.294" level="INFO">Typing text 'admin@co.in' into text field 'name=user[new]'.</msg>
+<status status="PASS" starttime="20220512 12:33:35.294" endtime="20220512 12:33:37.853"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id=password</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220512 12:33:37.853" level="INFO">Typing text 'admin12354484' into text field 'id=password'.</msg>
+<status status="PASS" starttime="20220512 12:33:37.853" endtime="20220512 12:33:38.025"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=//input[@name='usernameLogin']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220512 12:33:38.041" level="INFO">Clicking element 'xpath=//input[@name='usernameLogin']'.</msg>
+<status status="PASS" starttime="20220512 12:33:38.041" endtime="20220512 12:33:38.166"/>
+</kw>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>xpath=//div[contains(text(),'Incorrect email ID or password')]</arg>
+<arg>expected=${expected_error}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20220512 12:33:38.166" level="INFO">Verifying element 'xpath=//div[contains(text(),'Incorrect email ID or password')]' contains exact text 'Incorrect email ID or password'.</msg>
+<msg timestamp="20220512 12:34:08.862" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="../pythonProject5%24%28/%29Screenshots/selenium-screenshot-12.png"&gt;&lt;img src="../pythonProject5%24%28/%29Screenshots/selenium-screenshot-12.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20220512 12:34:08.870" level="FAIL">Element with locator 'xpath=//div[contains(text(),'Incorrect email ID or password')]' not found.</msg>
+<status status="FAIL" starttime="20220512 12:33:38.166" endtime="20220512 12:34:08.870"/>
+</kw>
+<status status="FAIL" starttime="20220512 12:33:22.453" endtime="20220512 12:34:08.870"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220512 12:34:08.878" endtime="20220512 12:34:11.411"/>
+</kw>
+<status status="FAIL" starttime="20220512 12:32:50.450" endtime="20220512 12:34:11.411">Element with locator 'xpath=//div[contains(text(),'Incorrect email ID or password')]' not found.</status>
+</test>
+<test id="s1-t2" name="Tc1" line="11">
+<kw name="launch Browser" library="CommonFunctionality" type="SETUP">
+<kw name="Append To Environment Variable" library="OperatingSystem">
+<arg>path</arg>
+<arg>${EXECDIR}${/}Driver</arg>
+<doc>Appends given ``values`` to environment variable ``name``.</doc>
+<msg timestamp="20220512 12:34:11.426" level="INFO">Environment variable 'path' set to value 'C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\VMware\VMware Workstation\bin\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C;C;C:\Users\User\OneDrive\Desktop\Python\Scripts\;C:\Users\User\OneDrive\Desktop\Python\;C:\Users\User\AppData\Local\Microsoft\WindowsApps;;C:\Users\User\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\User\PycharmProjects\pythonProject5\Driver;C:\Users\User\PycharmProjects\pythonProject5\Driver'.</msg>
+<status status="PASS" starttime="20220512 12:34:11.426" endtime="20220512 12:34:11.426"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>browser=${Browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220512 12:34:11.426" level="INFO">Opening browser 'chrome' to base url 'None'.</msg>
+<status status="PASS" starttime="20220512 12:34:11.426" endtime="20220512 12:34:14.704"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20220512 12:34:14.704" endtime="20220512 12:34:14.846"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<arg>30s</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" starttime="20220512 12:34:14.846" endtime="20220512 12:34:14.846"/>
+</kw>
+<kw name="Set Screenshot Directory" library="SeleniumLibrary">
+<arg>${EXECDIR}$(/)Screenshots</arg>
+<doc>Sets the directory for captured screenshots.</doc>
+<status status="PASS" starttime="20220512 12:34:14.846" endtime="20220512 12:34:14.846"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>url=${URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20220512 12:34:14.846" level="INFO">Opening url 'https://www.pepperfry.com/'</msg>
+<status status="PASS" starttime="20220512 12:34:14.846" endtime="20220512 12:34:35.557"/>
+</kw>
+<status status="PASS" starttime="20220512 12:34:11.426" endtime="20220512 12:34:35.557"/>
+</kw>
+<kw name="Invalid Credential Template">
+<arg>admin@gmail.in</arg>
+<arg>admin123458</arg>
+<arg>Incorrect email ID or password</arg>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=//a[text()='Existing User? Log In']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220512 12:34:35.557" level="INFO">Clicking element 'xpath=//a[text()='Existing User? Log In']'.</msg>
+<status status="PASS" starttime="20220512 12:34:35.557" endtime="20220512 12:34:46.198"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>name=user[new]</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220512 12:34:46.198" level="INFO">Typing text 'admin@gmail.in' into text field 'name=user[new]'.</msg>
+<status status="PASS" starttime="20220512 12:34:46.198" endtime="20220512 12:34:49.120"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id=password</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220512 12:34:49.120" level="INFO">Typing text 'admin123458' into text field 'id=password'.</msg>
+<status status="PASS" starttime="20220512 12:34:49.120" endtime="20220512 12:34:49.338"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=//input[@name='usernameLogin']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220512 12:34:49.338" level="INFO">Clicking element 'xpath=//input[@name='usernameLogin']'.</msg>
+<status status="PASS" starttime="20220512 12:34:49.338" endtime="20220512 12:34:49.495"/>
+</kw>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>xpath=//div[contains(text(),'Incorrect email ID or password')]</arg>
+<arg>expected=${expected_error}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20220512 12:34:49.495" level="INFO">Verifying element 'xpath=//div[contains(text(),'Incorrect email ID or password')]' contains exact text 'Incorrect email ID or password'.</msg>
+<msg timestamp="20220512 12:35:29.967" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="../pythonProject5%24%28/%29Screenshots/selenium-screenshot-13.png"&gt;&lt;img src="../pythonProject5%24%28/%29Screenshots/selenium-screenshot-13.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20220512 12:35:29.967" level="FAIL">Element with locator 'xpath=//div[contains(text(),'Incorrect email ID or password')]' not found.</msg>
+<status status="FAIL" starttime="20220512 12:34:49.495" endtime="20220512 12:35:29.967"/>
+</kw>
+<status status="FAIL" starttime="20220512 12:34:35.557" endtime="20220512 12:35:29.967"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220512 12:35:29.967" endtime="20220512 12:35:32.288"/>
+</kw>
+<status status="FAIL" starttime="20220512 12:34:11.411" endtime="20220512 12:35:32.288">Element with locator 'xpath=//div[contains(text(),'Incorrect email ID or password')]' not found.</status>
+</test>
+<doc>thise suite will handle Invalid credential</doc>
+<status status="FAIL" starttime="20220512 12:32:48.888" endtime="20220512 12:35:32.296"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="2" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="2" skip="0" id="s1" name="Verify Invalid Credential Suite">Verify Invalid Credential Suite</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20220512 12:34:11.411" level="WARN">Multiple tests with name 'Tc1' executed in suite 'Verify Invalid Credential Suite'.</msg>
+</errors>
+</robot>
